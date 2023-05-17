@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_furtable/routes.dart';
 import 'package:mobile_furtable/screens/profile/profile_screen.dart';
+import 'package:mobile_furtable/screens/profile/update_profile.dart';
 import 'package:mobile_furtable/theme.dart';
 import 'package:mobile_furtable/screens/splash/splash_screen.dart';
 
