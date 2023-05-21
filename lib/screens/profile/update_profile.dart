@@ -18,10 +18,6 @@ class UpdateProfileScreen extends StatefulWidget {
 }
 
 class _UpdateProfileScreen extends State<UpdateProfileScreen> {
-  // final namaController = TextEditingController();
-  // final emailController = TextEditingController();
-  // final passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -158,36 +154,4 @@ class _UpdateProfileScreen extends State<UpdateProfileScreen> {
       ),
     );
   }
-
-  Future<void> getData() async {
-    var data;
-    data = await http
-        .get(Uri.parse('http://192.168.1.4:8000/api/history'), headers: {
-      HttpHeaders.authorizationHeader:
-          'Bearer 2|cC5fRkKFvfNNtdhe2nTk6zAXcr9tSSyoEGVqbmEL'
-    });
-
-    if (data.statusCode == 200) {
-      var dataJson = jsonDecode(data.body);
-      var parsed = dataJson;
-    } else {
-      throw Exception('failed');
-    }
-  }
-
-  // Widget buildNama() => TextFormField(
-  //       decoration: const InputDecoration(
-  //         labelText: 'Nama Lengkap',
-  //         enabledBorder: OutlineInputBorder(
-  //           borderSide: BorderSide(color: Color(0xFF8D9EFF)),
-  //         ),
-  //         focusedBorder: OutlineInputBorder(
-  //           borderSide: BorderSide(color: Color(0xFF8D9EFF)),
-  //         ),
-  //         border: OutlineInputBorder(),
-  //       ),
-  //       keyboardType: TextInputType.name,
-  //       textInputAction: TextInputAction.done,
-  //       controller: namaController,
-  //     );
 }
