@@ -159,21 +159,21 @@ class _UpdateProfileScreen extends State<UpdateProfileScreen> {
     );
   }
 
-  // Future<void> getData() async {
-  //   var data;
-  //   data = await http
-  //       .get(Uri.parse('http://192.168.1.4:8000/api/history'), headers: {
-  //     HttpHeaders.authorizationHeader:
-  //         'Bearer 2|cC5fRkKFvfNNtdhe2nTk6zAXcr9tSSyoEGVqbmEL'
-  //   });
+  Future<void> getData() async {
+    var data;
+    data = await http
+        .get(Uri.parse('http://192.168.1.4:8000/api/history'), headers: {
+      HttpHeaders.authorizationHeader:
+          'Bearer 2|cC5fRkKFvfNNtdhe2nTk6zAXcr9tSSyoEGVqbmEL'
+    });
 
-  //   if (data.statusCode == 200) {
-  //     var dataJson = jsonDecode(data.body);
-  //     var parsed = dataJson;
-  //   } else {
-  //     throw Exception('failed');
-  //   }
-  // }
+    if (data.statusCode == 200) {
+      var dataJson = jsonDecode(data.body);
+      var parsed = dataJson;
+    } else {
+      throw Exception('failed');
+    }
+  }
 
   // Widget buildNama() => TextFormField(
   //       decoration: const InputDecoration(
