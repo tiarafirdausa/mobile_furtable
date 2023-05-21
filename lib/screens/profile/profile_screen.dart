@@ -8,11 +8,15 @@ import 'package:mobile_furtable/screens/profile/histori.dart';
 import '../../../constants.dart';
 import 'update_profile.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   static String routeName = "/profile";
 
   const ProfileScreen({super.key});
+  @override
+  State<ProfileScreen> createState() => _ProfileScreen();
+}
 
+class _ProfileScreen extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +60,7 @@ class ProfileScreen extends StatelessWidget {
               "adhiyaksasatria@gmail.com",
               style: Theme.of(context).textTheme.bodyMedium,
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 25),
             //My Acount
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),

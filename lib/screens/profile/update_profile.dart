@@ -1,18 +1,32 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:convert';
+import 'dart:io';
+import 'package:http/http.dart' as http;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile_furtable/constants.dart';
 import 'package:mobile_furtable/screens/profile/profile_screen.dart';
 
-class UpdateProfileScreen extends StatelessWidget {
-  const UpdateProfileScreen({Key? key}) : super(key: key);
+class UpdateProfileScreen extends StatefulWidget {
   static String routeName = "/updateprofile";
+
+  const UpdateProfileScreen({Key? key}) : super(key: key);
+  @override
+  State<UpdateProfileScreen> createState() => _UpdateProfileScreen();
+}
+
+class _UpdateProfileScreen extends State<UpdateProfileScreen> {
+  // final namaController = TextEditingController();
+  // final emailController = TextEditingController();
+  // final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: () {
             Navigator.push(
@@ -20,16 +34,23 @@ class UpdateProfileScreen extends StatelessWidget {
               MaterialPageRoute(builder: (context) => ProfileScreen()),
             );
           },
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
+          color: Colors.white,
         ),
-        title: Text(
-          "Edit Profile",
-          style: TextStyle(
-            color: Color(0xFF515151),
-            fontWeight: FontWeight.bold,
+        toolbarHeight: 70,
+        title: Text("Edit Profile"),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20)),
+            gradient: LinearGradient(colors: [
+              Color.fromARGB(175, 119, 53, 1),
+              Color.fromARGB(255, 199, 134, 1)
+            ], begin: Alignment.bottomLeft, end: Alignment.topRight),
           ),
         ),
-        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -101,7 +122,7 @@ class UpdateProfileScreen extends StatelessWidget {
                   SizedBox(height: 20),
                   TextFormField(
                     decoration: InputDecoration(
-                      label: Text("No Hp"),
+                      label: Text("Password"),
                       labelStyle: TextStyle(
                         color: kPrimaryColor,
                         fontSize: 20,
@@ -124,9 +145,8 @@ class UpdateProfileScreen extends StatelessWidget {
                       child: Text(
                         "SAVE",
                         style: TextStyle(
-                          color: Color(0xFFF5F6F9),
-                          fontWeight: FontWeight.bold,
-                        ),
+                            color: Color(0xFFF5F6F9),
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   )
@@ -138,4 +158,36 @@ class UpdateProfileScreen extends StatelessWidget {
       ),
     );
   }
+
+  // Future<void> getData() async {
+  //   var data;
+  //   data = await http
+  //       .get(Uri.parse('http://192.168.1.4:8000/api/history'), headers: {
+  //     HttpHeaders.authorizationHeader:
+  //         'Bearer 2|cC5fRkKFvfNNtdhe2nTk6zAXcr9tSSyoEGVqbmEL'
+  //   });
+
+  //   if (data.statusCode == 200) {
+  //     var dataJson = jsonDecode(data.body);
+  //     var parsed = dataJson;
+  //   } else {
+  //     throw Exception('failed');
+  //   }
+  // }
+
+  // Widget buildNama() => TextFormField(
+  //       decoration: const InputDecoration(
+  //         labelText: 'Nama Lengkap',
+  //         enabledBorder: OutlineInputBorder(
+  //           borderSide: BorderSide(color: Color(0xFF8D9EFF)),
+  //         ),
+  //         focusedBorder: OutlineInputBorder(
+  //           borderSide: BorderSide(color: Color(0xFF8D9EFF)),
+  //         ),
+  //         border: OutlineInputBorder(),
+  //       ),
+  //       keyboardType: TextInputType.name,
+  //       textInputAction: TextInputAction.done,
+  //       controller: namaController,
+  //     );
 }
