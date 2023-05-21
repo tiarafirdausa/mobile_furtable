@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_furtable/constants.dart';
+import 'package:mobile_furtable/screens/profile/update_profile.dart';
 import 'package:mobile_furtable/size_config.dart';
 
 // This is the best practice
@@ -69,7 +70,11 @@ class _BodyState extends State<Body> {
                     DefaultButton(
                       text: "Masuk",
                       press: () {
-                        // Navigator.pushNamed(context, SignInScreen.routeName);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => UpdateProfileScreen()),
+                        );
                       },
                     ),
                     SizedBox(height: 10),

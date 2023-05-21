@@ -7,7 +7,6 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile_furtable/constants.dart';
-import 'package:mobile_furtable/screens/profile/profile_screen.dart';
 
 class UpdateProfileScreen extends StatefulWidget {
   static String routeName = "/updateprofile";
@@ -18,10 +17,6 @@ class UpdateProfileScreen extends StatefulWidget {
 }
 
 class _UpdateProfileScreen extends State<UpdateProfileScreen> {
-  // final namaController = TextEditingController();
-  // final emailController = TextEditingController();
-  // final passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,10 +24,7 @@ class _UpdateProfileScreen extends State<UpdateProfileScreen> {
         backgroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => ProfileScreen()),
-            );
+            Navigator.pop(context);
           },
           icon: const Icon(Icons.arrow_back_ios),
           color: Colors.white,
@@ -100,6 +92,17 @@ class _UpdateProfileScreen extends State<UpdateProfileScreen> {
                 children: [
                   TextFormField(
                     decoration: InputDecoration(
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(color: kSecondaryColor),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(color: kSecondaryColor),
+                      ),
                       label: Text("Nama Lengkap"),
                       labelStyle: TextStyle(
                         color: kPrimaryColor,
@@ -111,6 +114,17 @@ class _UpdateProfileScreen extends State<UpdateProfileScreen> {
                   SizedBox(height: 20),
                   TextFormField(
                     decoration: InputDecoration(
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(color: kSecondaryColor),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(color: kSecondaryColor),
+                      ),
                       label: Text("Email"),
                       labelStyle: TextStyle(
                         color: kPrimaryColor,
@@ -122,6 +136,17 @@ class _UpdateProfileScreen extends State<UpdateProfileScreen> {
                   SizedBox(height: 20),
                   TextFormField(
                     decoration: InputDecoration(
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(color: kSecondaryColor),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(color: kSecondaryColor),
+                      ),
                       label: Text("Password"),
                       labelStyle: TextStyle(
                         color: kPrimaryColor,
@@ -158,36 +183,4 @@ class _UpdateProfileScreen extends State<UpdateProfileScreen> {
       ),
     );
   }
-
-  Future<void> getData() async {
-    var data;
-    data = await http
-        .get(Uri.parse('http://192.168.1.4:8000/api/history'), headers: {
-      HttpHeaders.authorizationHeader:
-          'Bearer 2|cC5fRkKFvfNNtdhe2nTk6zAXcr9tSSyoEGVqbmEL'
-    });
-
-    if (data.statusCode == 200) {
-      var dataJson = jsonDecode(data.body);
-      var parsed = dataJson;
-    } else {
-      throw Exception('failed');
-    }
-  }
-
-  // Widget buildNama() => TextFormField(
-  //       decoration: const InputDecoration(
-  //         labelText: 'Nama Lengkap',
-  //         enabledBorder: OutlineInputBorder(
-  //           borderSide: BorderSide(color: Color(0xFF8D9EFF)),
-  //         ),
-  //         focusedBorder: OutlineInputBorder(
-  //           borderSide: BorderSide(color: Color(0xFF8D9EFF)),
-  //         ),
-  //         border: OutlineInputBorder(),
-  //       ),
-  //       keyboardType: TextInputType.name,
-  //       textInputAction: TextInputAction.done,
-  //       controller: namaController,
-  //     );
 }
