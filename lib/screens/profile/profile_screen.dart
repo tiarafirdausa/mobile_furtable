@@ -8,15 +8,15 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../constants.dart';
 import 'update_profile.dart';
 
-class ProfileScreen extends StatefulWidget {
+class UserProfile extends StatefulWidget {
   static String routeName = "/profile";
 
-  const ProfileScreen({super.key});
+  const UserProfile({super.key});
   @override
-  State<ProfileScreen> createState() => _ProfileScreen();
+  State<UserProfile> createState() => _UserProfile();
 }
 
-class _ProfileScreen extends State<ProfileScreen> {
+class _UserProfile extends State<UserProfile> {
   // final String whatsappUrl = 'https://wa.me/+6281323445334';
   final Uri instagram = Uri.parse('www.instagram.com/tiarafa__');
   // final Uri _url = Uri.parse('https://youtu.be/gU7ZxYN03fU');
@@ -31,9 +31,14 @@ class _ProfileScreen extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: const Icon(Icons.arrow_back_ios),
+          color: Colors.black,
         ),
         title: Text(
           "Profile",
