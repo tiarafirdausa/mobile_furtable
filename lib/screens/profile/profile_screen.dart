@@ -30,6 +30,7 @@ class _UserProfile extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appbar profil
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -41,7 +42,7 @@ class _UserProfile extends State<UserProfile> {
           color: Colors.black,
         ),
         title: Text(
-          "Profile",
+          "Profil",
           style: TextStyle(
             color: Color(0xFF515151),
             fontWeight: FontWeight.bold,
@@ -49,10 +50,12 @@ class _UserProfile extends State<UserProfile> {
         ),
         centerTitle: true,
       ),
+      //Body
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: 20),
         child: Column(
           children: [
+            //Foto Profil
             SizedBox(
               height: 115,
               width: 115,
@@ -67,16 +70,21 @@ class _UserProfile extends State<UserProfile> {
                 ],
               ),
             ),
+            // Nama + Email
+            Padding(padding: EdgeInsets.only(top: 10)),
             Text(
               "Adhiyaksa Satria",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             Text(
               "adhiyaksasatria@gmail.com",
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: TextStyle(
+                fontSize: 15,
+                color: kTextColor,
+              ),
             ),
             SizedBox(height: 25),
-            //My Acount
+            //Menu Akun Saya
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: TextButton(
@@ -104,7 +112,7 @@ class _UserProfile extends State<UserProfile> {
                     SizedBox(width: 20),
                     Expanded(
                       child: Text(
-                        "My Account",
+                        "Akun Saya",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -115,8 +123,8 @@ class _UserProfile extends State<UserProfile> {
                 ),
               ),
             ),
-            SizedBox(height: 15), // Jarak antara menu
-            // Menu History
+            SizedBox(height: 15),
+            // Menu Riwayat
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: TextButton(
@@ -143,7 +151,7 @@ class _UserProfile extends State<UserProfile> {
                     SizedBox(width: 20),
                     Expanded(
                       child: Text(
-                        "History",
+                        "Riwayat",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -154,15 +162,49 @@ class _UserProfile extends State<UserProfile> {
                 ),
               ),
             ),
-            SizedBox(height: 15), // Jarak antara menu
-            Divider(
-              color: Colors.grey,
-              thickness: 1.0, // Ketebalan garis divider
-              indent: 20.0, // Jarak indentasi dari kiri
-              endIndent: 20.0, // Jarak indentasi dari kanan
+            SizedBox(height: 15),
+            // Logout
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  foregroundColor: Color(0xFFF5F6F9),
+                  padding: EdgeInsets.all(20),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  backgroundColor: kPrimaryColor,
+                ),
+                onPressed: () {
+                  // Tambahkan logika untuk menu Logout
+                },
+                child: Row(
+                  children: [
+                    SvgPicture.asset(
+                      "assets/icons/Log out.svg",
+                      color: Color(0xFFF5F6F9),
+                      width: 22,
+                    ),
+                    SizedBox(width: 20),
+                    Expanded(
+                      child: Text(
+                        "Keluar",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Icon(Icons.arrow_forward_ios),
+                  ],
+                ),
+              ),
             ),
             SizedBox(height: 15),
-            // Menu History
+            Divider(
+              color: Colors.grey,
+              thickness: 1.0,
+              indent: 20.0,
+              endIndent: 20.0,
+            ),
             Text(
               'Kontak Kami',
               style: TextStyle(
@@ -171,7 +213,7 @@ class _UserProfile extends State<UserProfile> {
               ),
             ),
             SizedBox(height: 15),
-
+            //Menu Kontak Kami
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Row(
@@ -240,41 +282,7 @@ class _UserProfile extends State<UserProfile> {
                 ],
               ),
             ),
-            SizedBox(height: 40), // Jarak antara menu
-            // Logout
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: Color(0xFFF5F6F9),
-                  padding: EdgeInsets.all(20),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
-                  backgroundColor: kPrimaryColor,
-                ),
-                onPressed: () {
-                  // Tambahkan logika untuk menu Logout
-                },
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      "assets/icons/Log out.svg",
-                      color: Color(0xFFF5F6F9),
-                      width: 22,
-                    ),
-                    SizedBox(width: 20),
-                    Expanded(
-                      child: Text(
-                        "Log Out",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            SizedBox(height: 15), // Jarak antara menu
           ],
         ),
       ),

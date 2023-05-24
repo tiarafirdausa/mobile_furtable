@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:mobile_furtable/screens/home.dart';
+import 'package:mobile_furtable/constants.dart';
+import 'package:mobile_furtable/screens/produk/home.dart';
 import 'package:mobile_furtable/screens/keranjang.dart';
 import 'package:mobile_furtable/screens/transaksi.dart';
 import 'package:mobile_furtable/screens/profile/profile_screen.dart';
@@ -39,7 +40,7 @@ class _HomePageState extends State<HomePage> {
         currentIndex: _selectedIndex,
         onTap: _navigateBottomBar,
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.orangeAccent,
+        selectedItemColor: kPrimaryColor,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(

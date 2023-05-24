@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:mobile_furtable/screens/produk/detail.dart';
 import 'package:mobile_furtable/screens/splash/splash_screen.dart';
 
 void main() {
@@ -12,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(), // Ganti halaman utama menjadi SplashScreen
+      home: ProductItemScreen(), // Ganti halaman utama menjadi SplashScreen
     );
   }
 }
