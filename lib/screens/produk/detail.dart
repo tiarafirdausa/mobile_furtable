@@ -3,6 +3,10 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:mobile_furtable/constants.dart';
+import 'package:intl/intl.dart';
+
+// import 'package:flutter_html/flutter_html.dart';
 
 class ProductItemScreen extends StatefulWidget {
   const ProductItemScreen({Key? key}) : super(key: key);
@@ -36,6 +40,7 @@ class _ProductItemScreenState extends State<ProductItemScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: [
+              //Gambar Barang
               Stack(
                 children: [
                   CarouselSlider(
@@ -106,6 +111,8 @@ class _ProductItemScreenState extends State<ProductItemScreen> {
                   ),
                 ],
               ),
+
+              //Nama, Harga, Deskripsi
               Container(
                 width: double.infinity,
                 padding: EdgeInsets.all(16),
@@ -115,17 +122,47 @@ class _ProductItemScreenState extends State<ProductItemScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
+                      Text(
+                        "LANDSOVER",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        "Kursi",
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 103, 103, 103),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      SizedBox(height: 5),
                       Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(
-                            child: Text(
-                              "LANDSOVER",
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          Text(
+                            NumberFormat.currency(
+                              symbol: 'Rp',
+                              decimalDigits: 0,
+                            ).format(5000000),
+                            style: TextStyle(
+                              decoration: TextDecoration.lineThrough,
+                              decorationThickness: 1.5,
                             ),
                           ),
+                          SizedBox(width: 5),
+                          Text(
+                            NumberFormat.currency(
+                              symbol: 'Rp',
+                              decimalDigits: 0,
+                            ).format(5000000),
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
                         ],
                       ),
                       SizedBox(height: 10),
@@ -143,10 +180,146 @@ class _ProductItemScreenState extends State<ProductItemScreen> {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
+                      SizedBox(height: 5),
+                      Text(
+                        "Hangat dan ramah, rapi dan bergaya. Bantal kursi penyangga, sarung yang lembut dan pelengkap yang ketat membuat kursi ini memiliki keseimbangan sempurna antara kenyamanan, fungsi, dan tampilan.",
+                        style: TextStyle(),
+                      ),
                       SizedBox(height: 10),
                       Text(
-                        "Hangat dan ramah,Hangat dan ramah, rapi dan bergaya. Bantal kursi penyangga, sarung yang lembut dan pelengkap yang ketat membuat kursi ini memiliki keseimbangan sempurna antara kenyamanan, fungsi, dan tampilan.Hangat dan ramah, rapi dan bergaya. Bantal kursi penyangga, sarung yang lembut dan pelengkap yang ketat membuat kursi ini memiliki keseimbangan sempurna antara kenyamanan, fungsi, dan tampilan.Hangat dan ramah, rapi dan bergaya. Bantal kursi penyangga, sarung yang lembut dan pelengkap yang ketat membuat kursi ini memiliki keseimbangan sempurna antara kenyamanan, fungsi, dan tampilan.Hangat dan ramah, rapi dan bergaya. Bantal kursi penyangga, sarung yang lembut dan pelengkap yang ketat membuat kursi ini memiliki keseimbangan sempurna antara kenyamanan, fungsi, dan tampilan.Hangat dan ramah, rapi dan bergaya. Bantal kursi penyangga, sarung yang lembut dan pelengkap yang ketat membuat kursi ini memiliki keseimbangan sempurna antara kenyamanan, fungsi, dan tampilan. rapi dan bergaya. Bantal kursi penyangga, sarung yang lembut dan pelengkap yang ketat membuat kursi ini memiliki keseimbangan sempurna antara kenyamanan, fungsi, dan tampilan.",
+                        "Bahan",
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        "Trembesi",
                         style: TextStyle(),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        "Ukuran",
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        "Trembesi",
+                        style: TextStyle(),
+                      ),
+                      SizedBox(height: 10),
+                      Divider(
+                        color: Color.fromARGB(255, 207, 207, 207),
+                        thickness: 1.5,
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        "Estimasi Pengiriman",
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.local_shipping,
+                            color: Color.fromARGB(255, 81, 81, 81),
+                          ),
+                          SizedBox(width: 5),
+                          Text(
+                            "Ongkos kirim mulai dari Rp 250.000",
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 81, 81, 81),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 3),
+                      Text(
+                        "(Masih estimasi, bisa lebih murah dan mahal)",
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 103, 103, 103),
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        "Reguler (Perkiraan pesanan datang paling cepat 3 hari setelah pengiriman)",
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.settings,
+                            color: Color.fromARGB(255, 81, 81, 81),
+                          ),
+                          SizedBox(width: 5),
+                          Text(
+                            "Gratis biaya perakitan",
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 81, 81, 81),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        "Gratis pemasangan untuk setiap pembelanjaan di Furtable dan gratis konsultasi.",
+                        style: TextStyle(),
+                      ),
+                      SizedBox(height: 20),
+
+                      //Harga dan button
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Total Harga"),
+                              Text(
+                                "Rp 5.250.000",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              // Aksi yang ingin Anda lakukan saat tombol ditekan
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: kPrimaryColor,
+                              side: BorderSide.none,
+                              padding: EdgeInsets.all(15),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                            ),
+                            child: Text(
+                              "+  Keranjang",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

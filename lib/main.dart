@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mobile_furtable/screens/produk/detail.dart';
-import 'package:mobile_furtable/screens/splash/splash_screen.dart';
+// import 'package:mobile_furtable/screens/splash/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
